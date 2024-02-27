@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Generator</title>
+    <link href="{{ url_for('static', path='/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Text Generator</h1>
+        <form action="/generate/" method="post">
+            <label for="length">Length:</label>
+            <input type="number" id="length" name="length" value="100">
+            <label for="diversity">Diversity:</label>
+            <input type="number" step="0.01" id="diversity" name="diversity" value="1.0">
+            <button type="submit">Generate</button>
+        </form>
+        {% if generated_text %}
+        <div class="generated-text">{{ generated_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
